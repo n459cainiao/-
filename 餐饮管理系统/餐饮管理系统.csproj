@@ -1,0 +1,121 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{C86383C3-6DBF-4D76-B43E-778A63FF3C63}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>餐饮管理系统</RootNamespace>
+    <AssemblyName>餐饮管理系统</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="frmAdmin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAdmin.Designer.cs">
+      <DependentUpon>frmAdmin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmLogin.Designer.cs">
+      <DependentUpon>frmLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmWaiter.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmWaiter.Designer.cs">
+      <DependentUpon>frmWaiter.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="frmAdmin.resx">
+      <DependentUpon>frmAdmin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmLogin.resx">
+      <DependentUpon>frmLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmWaiter.resx">
+      <DependentUpon>frmWaiter.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="餐饮管理系统图片\照片\张三.jpg" />
+    <Content Include="餐饮管理系统图片\菜品\01西红柿炒蛋.jpg" />
+    <Content Include="餐饮管理系统图片\菜品\02葱爆牛肉片.jpg" />
+    <Content Include="餐饮管理系统图片\菜品\03黄瓜炒火腿肠.gif" />
+    <Content Include="餐饮管理系统图片\菜品\04鱼香茄子.jpg" />
+    <Content Include="餐饮管理系统图片\菜品\05香菇板栗焖鸡.jpg" />
+    <Content Include="餐饮管理系统图片\菜品\06红烧带鱼.jpg" />
+    <Content Include="餐饮管理系统图片\菜品\07辣椒炒肉.jpeg" />
+    <Content Include="餐饮管理系统图片\菜品\08清炒白菜.jpg" />
+    <Content Include="餐饮管理系统图片\菜品\09红烧排骨.jpg" />
+    <Content Include="餐饮管理系统图片\菜品\10红烧牛肉.jpg" />
+    <Content Include="餐饮管理系统图片\菜品\11凉拌豆腐.png" />
+    <Content Include="餐饮管理系统图片\菜品\12蒜泥白肉.jpg" />
+    <Content Include="餐饮管理系统图片\菜品\13老鹅汤.jpg" />
+    <Content Include="餐饮管理系统图片\菜品\14玉米排骨汤.jpg" />
+    <Content Include="餐饮管理系统图片\菜品\15小鸡炖蘑菇.gif" />
+    <Content Include="餐饮管理系统图片\菜品\16宫保鸡丁.jpeg" />
+    <Content Include="餐饮管理系统图片\菜品\17凉拌豆筋.jpg" />
+    <Content Include="餐饮管理系统图片\菜品\19花生米.jpg" />
+    <Content Include="餐饮管理系统图片\菜品\20红烧肉.jpeg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="餐饮管理系统图片\其他\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
