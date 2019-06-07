@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using System.Configuration;
 
 namespace 餐饮管理系统
 {
@@ -30,12 +31,6 @@ namespace 餐饮管理系统
 
 
 
-            txtUserId.Text = "190501";
-            txtPassword.Text = "190501";
-
-
-
-
 
 
 
@@ -45,9 +40,9 @@ namespace 餐饮管理系统
             }
             else
             {
-                string sqlcon = @"Data Source=DESKTOP-MQ5BMMJ\SQLEXPRESS;Initial Catalog=My_Catering;Integrated Security=True";
+
                 string sqlstr = "select count(*) from Login where userId='"+txtUserId.Text.Trim()+"' and password='"+txtPassword.Text.Trim()+"'";
-                using (SqlConnection conn = new SqlConnection(sqlcon))
+                using (SqlConnection conn = new SqlConnection(DBHelper.connString))
                 {
                     SqlCommand cmd = new SqlCommand(sqlstr, conn);
                     conn.Open();
@@ -94,5 +89,9 @@ namespace 餐饮管理系统
                 BtnLogin_Click(sender, e);
             }
         }
+    }
+    class DBHelper
+    {
+        public static string connString = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
     }
 }

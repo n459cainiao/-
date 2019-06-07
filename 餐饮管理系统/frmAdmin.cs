@@ -13,7 +13,8 @@ namespace 餐饮管理系统
     public partial class frmAdmin : Form
     {
         SqlConnection conn;
-        SqlCommand cmd;
+        DataSet ds;
+        SqlDataAdapter ad;
         public frmAdmin()
         {
             InitializeComponent();
@@ -28,11 +29,12 @@ namespace 餐饮管理系统
 
             Application.Exit();
         }
-
+        
         private void FrmAdmin_Load(object sender, EventArgs e)
         {
-            string sqlcon = @"Data Source=DESKTOP-MQ5BMMJ\SQLEXPRESS;Initial Catalog=My_Catering;Integrated Security=True";
-            conn = new SqlConnection(sqlcon);
+            
+            conn = new SqlConnection(DBHelper.connString);
+            ds = new DataSet();
             conn.Open();
             ini();
             
@@ -41,29 +43,39 @@ namespace 餐饮管理系统
         private void ini()
         {
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox1.BorderStyle = BorderStyle.FixedSingle;
             string sqlstr = "select * from staff where userId='" + userId + "'";
-            cmd = new SqlCommand(sqlstr, conn);
-            SqlDataReader reader = cmd.ExecuteReader();
-            if(reader.HasRows)
+            ad = new SqlDataAdapter();
+            ad.SelectCommand = new SqlCommand(sqlstr, conn);
+            ad.Fill(ds,"message");
+            tsslName.Text = ds.Tables["message"].Rows[0]["userName"].ToString();
+            lblName.Text = ds.Tables["message"].Rows[0]["userName"].ToString();
+            lblAge.Text = ds.Tables["message"].Rows[0]["age"].ToString();
+            lblSex.Text = ds.Tables["message"].Rows[0]["sex"].ToString();
+            lblDuty.Text = ds.Tables["message"].Rows[0]["duty"].ToString();
+            lblIdNum.Text = ds.Tables["message"].Rows[0]["idNum"].ToString();
+            lblTel.Text = ds.Tables["message"].Rows[0]["tel"].ToString();
+            lblAddress.Text = ds.Tables["message"].Rows[0]["address"].ToString();
+            try
             {
-                while(reader.Read())
-                {
-                    tsslName.Text = reader["userName"].ToString();
-                    lblName.Text = reader["userName"].ToString();
-                    lblAge.Text = reader["age"].ToString();
-                    lblSex.Text = reader["sex"].ToString();
-                    lblDuty.Text = reader["duty"].ToString();
-                    lblIdNum.Text = reader["idNum"].ToString();
-                    lblTel.Text = reader["tel"].ToString();
-                    lblAddress.Text = reader["address"].ToString();
-                    pictureBox1.Image = Image.FromFile(reader["userPhoto"].ToString());
-                    
-                }
+                string s = ds.Tables["message"].Rows[0]["userPhoto"].ToString();
+                string path = s.Substring(s.LastIndexOf(@"\餐饮管理系统图片"));
+                pictureBox1.Image = Image.FromFile(Application.StartupPath + path);
+                photoPass = Application.StartupPath + path;
+            }
+            catch
+            {
+                pictureBox1.Image = Image.FromFile(ds.Tables[0].Rows[0]["userPhoto"].ToString());
+                photoPass = ds.Tables[0].Rows[0]["userPhoto"].ToString();
             }
             btnPhoto.Enabled = false;
             btnPhoto.Visible = false;
             btnSave.Enabled = false;
             btnSave.Visible = false;
+            btnCancel.Enabled = false;
+            btnCancel.Visible = false;
+            txtAddress.Visible = false;
+            txtTel.Visible = false;
             Timer timer1 = new Timer();
             timer1.Interval = 1000;
             timer1.Enabled = true;
@@ -74,30 +86,90 @@ namespace 餐饮管理系统
             tsslTime.Text = DateTime.Now.ToString();
         }
 
+        private string photoPass;
+
         private void BtnChange_Click(object sender, EventArgs e)
         {
             btnPhoto.Enabled = true;
             btnPhoto.Visible = true;
             btnSave.Enabled = true;
             btnSave.Visible = true;
+            btnCancel.Visible = true;
+            btnCancel.Enabled = true;
             btnChange.Enabled = false;
             btnChange.Visible = false;
 
-            TextBox txtTel = new TextBox();
-            txtTel.Size = new Size(100, 10);
+            txtTel.Visible = true;
             txtTel.Text = lblTel.Text;
-            
-            txtTel.Location = lblTel.Location;
             lblTel.Visible = false;
-            tabPage1.Controls.Add(txtTel);
             txtTel.Focus();
 
-            TextBox txAddress = new TextBox();
-            txAddress.Size = new Size(100, 10);
-            txAddress.Text = lblAddress.Text;
-            txAddress.Location = lblAddress.Location;
+            txtAddress.Visible = true;
+            txtAddress.Text = lblAddress.Text;
             lblAddress.Visible = false;
-            tabPage1.Controls.Add(txAddress);
         }
+
+        private void BtnPhoto_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog photo = new OpenFileDialog();
+            photo.InitialDirectory = Application.StartupPath + @"\餐饮管理系统图片\照片";
+            photo.Filter = "jpg文件(*.jpg)|*.jpg|bmp文件(*.bmp)|*.bmp|gif文件(*.gif)|*.gif";
+           if(photo.ShowDialog()==DialogResult.OK)
+            {
+                string path = photo.FileName;
+                pictureBox1.Image = Image.FromFile(path);
+                photoPass = path;
+            }
+
+        }
+
+        private void BtnCancel_Click(object sender, EventArgs e)
+        {
+            txtAddress.Visible = false;
+            txtTel.Visible = false;
+            lblAddress.Visible = true;
+            lblTel.Visible = true;
+            btnCancel.Enabled = false;
+            btnCancel.Visible = false;
+            btnChange.Enabled = true;
+            btnChange.Visible = true;
+            btnPhoto.Enabled = false;
+            btnPhoto.Visible = false;
+            btnSave.Enabled = false;
+            btnSave.Visible = false;
+            pictureBox1.Image = Image.FromFile(ds.Tables[0].Rows[0]["userPhoto"].ToString());
+            photoPass = ds.Tables[0].Rows[0]["userPhoto"].ToString();
+        }
+
+        private void BtnSave_Click(object sender, EventArgs e)
+        {
+            txtAddress.Visible = false;
+            txtTel.Visible = false;
+            lblAddress.Visible = true;
+            lblTel.Visible = true;
+            btnCancel.Enabled = false;
+            btnCancel.Visible = false;
+            btnChange.Enabled = true;
+            btnChange.Visible = true;
+            btnPhoto.Enabled = false;
+            btnPhoto.Visible = false;
+            btnSave.Enabled = false;
+            btnSave.Visible = false;
+
+            ds.Tables[0].Rows[0]["userPhoto"] = photoPass;
+
+            lblTel.Text = txtTel.Text.Trim();
+            txtTel.Visible = false;
+            lblTel.Visible = true;
+            ds.Tables[0].Rows[0]["tel"] = lblTel.Text.Trim();
+            lblAddress.Text = txtAddress.Text.Trim();
+            txtAddress.Visible = false;
+            lblAddress.Visible = true;
+            ds.Tables["message"].Rows[0]["address"] = lblAddress.Text.Trim();
+
+            SqlCommandBuilder builder = new SqlCommandBuilder(ad);
+            ad.Update(ds,"message");
+        }
+
     }
 }

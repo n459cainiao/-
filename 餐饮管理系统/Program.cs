@@ -14,7 +14,7 @@ namespace 餐饮管理系统
         static void Main()
         {
             Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);
+            Application.SetCompatibleTextRenderingDefault(false); 
             Application.Run(new frmLogin());
         }
     }

@@ -33,6 +33,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -81,7 +82,9 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
+    <None Include="App.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -93,6 +96,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\风景壁纸 %287%29.jpg" />
     <Content Include="餐饮管理系统图片\照片\张三.jpg" />
     <Content Include="餐饮管理系统图片\菜品\01西红柿炒蛋.jpg" />
     <Content Include="餐饮管理系统图片\菜品\02葱爆牛肉片.jpg" />
