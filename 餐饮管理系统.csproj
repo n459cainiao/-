@@ -45,18 +45,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="frmConsumption.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmConsumption.Designer.cs">
-      <DependentUpon>frmConsumption.cs</DependentUpon>
-    </Compile>
-    <Compile Include="frmFood.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmFood.Designer.cs">
-      <DependentUpon>frmFood.cs</DependentUpon>
-    </Compile>
     <Compile Include="frmAdmin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -75,12 +63,6 @@
     <Compile Include="frmLogin.Designer.cs">
       <DependentUpon>frmLogin.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmNew.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmNew.Designer.cs">
-      <DependentUpon>frmNew.cs</DependentUpon>
-    </Compile>
     <Compile Include="frmWaiter.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -89,18 +71,6 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="staffMessage.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="staffMessage.Designer.cs">
-      <DependentUpon>staffMessage.cs</DependentUpon>
-    </Compile>
-    <EmbeddedResource Include="frmConsumption.resx">
-      <DependentUpon>frmConsumption.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmFood.resx">
-      <DependentUpon>frmFood.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="frmAdmin.resx">
       <DependentUpon>frmAdmin.cs</DependentUpon>
     </EmbeddedResource>
@@ -109,9 +79,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmNew.resx">
-      <DependentUpon>frmNew.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmWaiter.resx">
       <DependentUpon>frmWaiter.cs</DependentUpon>
@@ -141,7 +108,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Resources\风景壁纸 %287%29.jpg" />
+    <None Include="Resources\风景壁纸 %287%29.jpg" />
     <Content Include="餐饮管理系统图片\照片\张三.jpg" />
     <Content Include="餐饮管理系统图片\菜品\01西红柿炒蛋.jpg" />
     <Content Include="餐饮管理系统图片\菜品\02葱爆牛肉片.jpg" />
