@@ -1,9 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
-VisualStudioVersion = 16.0.28803.452
+VisualStudioVersion = 16.0.29001.49
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "餐饮管理系统", "餐饮管理系统\餐饮管理系统.csproj", "{C86383C3-6DBF-4D76-B43E-778A63FF3C63}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "餐饮管理系统", "餐饮管理系统.csproj", "{C86383C3-6DBF-4D76-B43E-778A63FF3C63}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -20,6 +20,6 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {E2CE222B-DEDB-41ED-BE25-AA244D085B53}
+		SolutionGuid = {D0B089F8-CAA6-4B0C-92A6-499D73638D3C}
 	EndGlobalSection
 EndGlobal

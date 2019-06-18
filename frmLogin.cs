@@ -28,12 +28,6 @@ namespace 餐饮管理系统
         {
 
 
-
-
-
-
-
-
             if (txtUserId.Text==""||txtPassword.Text=="")
             {
                MessageBox.Show("输入禁止为空！", "错误提示", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -41,20 +35,20 @@ namespace 餐饮管理系统
             else
             {
 
-                string sqlstr = "select count(*) from Login where userId='"+txtUserId.Text.Trim()+"' and password='"+txtPassword.Text.Trim()+"'";
+                string sqlstr = "select count(*) from Login where userId='"+txtUserId.Text+"' and password='"+txtPassword.Text+"'";
                 using (SqlConnection conn = new SqlConnection(DBHelper.connString))
                 {
                     SqlCommand cmd = new SqlCommand(sqlstr, conn);
                     conn.Open();
                     if(cmd.ExecuteScalar().ToString()=="1")
                     {
+                        DBHelper.userId = txtUserId.Text;
                         sqlstr = "select duty from staff where userId='" + txtUserId.Text.Trim() + "'";
                         cmd = new SqlCommand(sqlstr, conn);
                         string duty = cmd.ExecuteScalar().ToString();
                         if (duty == "管理员")
                         {
                             frmAdmin admin = new frmAdmin();
-                            admin.userId = txtUserId.Text.Trim();
                             admin.Show();
                             this.Hide();
 
@@ -93,5 +87,6 @@ namespace 餐饮管理系统
     class DBHelper
     {
         public static string connString = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
+        public static string userId = "";
     }
 }
