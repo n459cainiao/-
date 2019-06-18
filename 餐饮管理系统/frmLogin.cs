@@ -31,23 +31,21 @@ namespace 餐饮管理系统
 
 
 
-
-
-
-            if (txtUserId.Text==""||txtPassword.Text=="")
+            if (txtUserId.Text == "" || txtPassword.Text == "")
             {
-               MessageBox.Show("输入禁止为空！", "错误提示", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("输入禁止为空！", "错误提示", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
             {
 
-                string sqlstr = "select count(*) from Login where userId='"+txtUserId.Text.Trim()+"' and password='"+txtPassword.Text.Trim()+"'";
+                string sqlstr = "select count(*) from Login where userId='" + txtUserId.Text.Trim() + "' and password='" + txtPassword.Text.Trim() + "'";
                 using (SqlConnection conn = new SqlConnection(DBHelper.connString))
                 {
                     SqlCommand cmd = new SqlCommand(sqlstr, conn);
                     conn.Open();
-                    if(cmd.ExecuteScalar().ToString()=="1")
+                    if (cmd.ExecuteScalar().ToString() == "1")
                     {
+                        DBHelper.userId = txtUserId.Text;
                         sqlstr = "select duty from staff where userId='" + txtUserId.Text.Trim() + "'";
                         cmd = new SqlCommand(sqlstr, conn);
                         string duty = cmd.ExecuteScalar().ToString();
@@ -63,6 +61,7 @@ namespace 餐饮管理系统
                         if (duty == "服务员")
                         {
                             frmWaiter waiter = new frmWaiter();
+                            waiter.userId = txtUserId.Text.Trim();
                             waiter.Show();
                             this.Hide();
                         }
@@ -84,7 +83,7 @@ namespace 餐饮管理系统
 
         private void TxtPassword_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if(Convert.ToInt32(e.KeyChar)==13)
+            if (Convert.ToInt32(e.KeyChar) == 13)
             {
                 BtnLogin_Click(sender, e);
             }
@@ -93,5 +92,6 @@ namespace 餐饮管理系统
     class DBHelper
     {
         public static string connString = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
+        public static string userId;
     }
 }

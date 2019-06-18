@@ -45,6 +45,36 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="frmCheckout.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmCheckout.Designer.cs">
+      <DependentUpon>frmCheckout.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmInquire.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmInquire.Designer.cs">
+      <DependentUpon>frmInquire.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmOpen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmOpen.Designer.cs">
+      <DependentUpon>frmOpen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmOrder.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmOrder.Designer.cs">
+      <DependentUpon>frmOrder.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmWaiter.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmWaiter.Designer.cs">
+      <DependentUpon>frmWaiter.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmAdmin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -57,22 +87,28 @@
     <Compile Include="frmLogin.Designer.cs">
       <DependentUpon>frmLogin.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmWaiter.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmWaiter.Designer.cs">
-      <DependentUpon>frmWaiter.cs</DependentUpon>
-    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="frmCheckout.resx">
+      <DependentUpon>frmCheckout.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmInquire.resx">
+      <DependentUpon>frmInquire.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmOpen.resx">
+      <DependentUpon>frmOpen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmOrder.resx">
+      <DependentUpon>frmOrder.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmWaiter.resx">
+      <DependentUpon>frmWaiter.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmAdmin.resx">
       <DependentUpon>frmAdmin.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmWaiter.resx">
-      <DependentUpon>frmWaiter.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -97,6 +133,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\风景壁纸 %287%29.jpg" />
+    <None Include="Resources\餐桌 %282%29.jpg" />
     <Content Include="餐饮管理系统图片\照片\张三.jpg" />
     <Content Include="餐饮管理系统图片\菜品\01西红柿炒蛋.jpg" />
     <Content Include="餐饮管理系统图片\菜品\02葱爆牛肉片.jpg" />
